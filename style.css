@@ -2,12 +2,13 @@
    Fonts
 ===================== */
 @font-face {
-  font-family: 'Komika';
+  font-family: 'Komigo3D';
   src: url('fonts/Komigo3D.ttf') format('truetype');
 }
+
 @font-face {
-  font-family: 'Bangers';
-  src: url('fonts/Super Comic.ttf') format('truetype');
+  font-family: 'Super Comic';
+  src: url('fonts/SuperComic.ttf') format('truetype');
 }
 
 /* =====================
@@ -15,13 +16,13 @@
 ===================== */
 * { box-sizing: border-box; }
 
-html, body { 
-  height:100%; 
-  margin:0; 
-  padding:0; 
-  background:#021224; 
-  font-family: "Komika", "Courier New", monospace; 
-  color:#e6f7ff; 
+html, body {
+  height:100%;
+  margin:0;
+  padding:0;
+  background:#021224;
+  font-family: "Super Comic", "Courier New", monospace; 
+  color:#e6f7ff;
 }
 
 body {
@@ -33,68 +34,80 @@ body {
 /* =====================
    Header
 ===================== */
-header { 
-  text-align:center; 
-  padding:18px 10px; 
-  border-bottom: 4px solid #a00; 
-  background: linear-gradient(#001f3f, #000); 
+header {
+  text-align:center;
+  padding:18px 10px;
+  border-bottom: 4px solid #a00;
+  background: linear-gradient(#001f3f, #000);
 }
 
-header h1 { 
-  font-family: 'Bangers', Impact, sans-serif; 
-  color:#ff4444; 
-  font-size:48px; 
-  text-shadow: 3px 3px 0 #000; 
-  margin:0; 
+header h1 {
+  font-family: 'Komigo3D', Impact, sans-serif;
+  color:#ff4444;
+  font-size:48px;
+  margin:0;
 }
 
-.marquee { 
-  margin-top:6px; 
-  overflow:hidden; 
-  height:26px; 
+.marquee {
+  margin-top:6px;
+  overflow:hidden;
+  height:26px;
 }
 
-.marquee span { 
-  display:inline-block; 
-  white-space:nowrap; 
-  animation: scroll 12s linear infinite; 
-  color:#ffd700; 
-  font-weight:bold; 
+.marquee span {
+  display:inline-block;
+  white-space:nowrap;
+  animation: scroll 12s linear infinite;
+  color: #ffd700;
+  font-family: 'Komigo3D', sans-serif; /* ίδιο font με τίτλο */
+  font-weight:bold;
 }
 
-@keyframes scroll { 
-  0%{transform:translateX(100%);} 
-  100%{transform:translateX(-100%);} 
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* =====================
-   Menu
+   Menu / Tabs
 ===================== */
-.menu { display:flex; justify-content:center; gap:12px; margin:12px 0; }
+.menu {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:12px 0;
+}
 
 .menu a {
-  padding:8px 14px; 
-  border:2px solid #003366; 
-  background:rgba(255,255,255,0.04);
-  color:#00c0ff; 
-  text-decoration:none; 
-  font-weight:bold; 
+  padding:8px 14px;
+  border:2px solid #003366;
+  background: rgba(255,255,255,0.04);
+  color:#00c0ff;
+  text-decoration:none;
+  font-weight:bold;
   text-shadow:1px 1px 0 #000;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.6);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect για tabs */
+.menu a:hover {
+  color: #ffcc00;
+  background: rgba(255,0,0,0.2);
+  border-color: #ff4444;
 }
 
 /* =====================
    Stage / Sprites
 ===================== */
-#stage { 
-  position: relative; 
-  width: 100%; 
-  height: 420px; 
-  max-width: 1000px; 
-  margin: 14px auto; 
-  border: 3px solid #111; 
-  background: rgba(0,0,0,0.45); 
-  overflow: hidden; 
+#stage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  max-width: 1000px;
+  margin: 14px auto;
+  border: 3px solid #111;
+  background: rgba(0,0,0,0.45);
+  overflow: hidden;
 }
 
 /* Background GIF */
@@ -109,50 +122,81 @@ header h1 {
 }
 
 /* Hero Sprites */
-.sprite { 
-  position: absolute; 
-  pointer-events:none; 
+.sprite {
+  position: absolute;
+  pointer-events:none;
   filter: drop-shadow(4px 6px 4px rgba(0,0,0,0.8));
   z-index:10;
   transition: none; /* σταθερά, χωρίς κίνηση */
 }
 
 /* =====================
-   Τοποθέτηση δίπλα-δίπλα στην ίδια ευθεία
+   Τοποθέτηση Ήρωες
 ===================== */
 
 /* Αριστερά: Spider-Man + Wolverine */
 #hero1 { left: 50px; top: 220px; width: 180px; transform: scaleX(1); } /* Spider-Man */
 #hero2 { left: 250px; top: 200px; width: 140px; transform: scaleX(1); } /* Wolverine πιο ψηλά */
 
-/* Δεξιά: Cyclops + Venom */
-#hero3 { right: 250px; top: 200px; width: 160px; transform: scaleX(-1); } /* Cyclops πιο ψηλά */
+/* Δεξιά: Cyclops + Venom, στραμμένοι αριστερά */
+#hero3 { right: 250px; top: 200px; width: 160px; transform: scaleX(-1); } /* Cyclops */
 #hero4 { right: 50px; top: 220px; width: 180px; transform: scaleX(-1); } /* Venom */
 
 /* =====================
    Intro & Spark
 ===================== */
-.intro { 
-  text-align:center; 
-  padding:10px; 
-  color:#ffd; 
-  font-size:18px; 
+.intro {
+  text-align:center;
+  padding:10px;
+  color:#ffd700; /* διαφορετικό χρώμα από τίτλο */
+  font-size:18px;
+  font-family: 'Komigo3D', sans-serif; /* ίδιο font με τίτλο */
 }
 
-.spark { 
-  position:absolute; 
-  left:8px; 
-  top:6px; 
-  width:48px; 
-  opacity:0.85; 
+.spark {
+  position:absolute;
+  left:8px;
+  top:6px;
+  width:48px;
+  opacity:0.85;
+}
+
+/* =====================
+   Contact Section
+===================== */
+#contact-section {
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.contact-box {
+  border: 2px solid #fff;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-family: 'Super Comic', sans-serif;
+}
+
+.contact-box h2 {
+  font-family: 'Komigo3D', sans-serif;
+  color: #ff4444;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.contact-box p {
+  font-size: 18px;
+  margin: 6px 0;
 }
 
 /* =====================
    Footer
 ===================== */
-footer { 
-  text-align:center; 
-  padding:8px; 
-  font-size:12px; 
-  color:#aaa; 
+footer {
+  text-align:center;
+  padding:8px;
+  font-size:12px;
+  color:#aaa;
 }
