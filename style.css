@@ -2,70 +2,153 @@
    Fonts
 ===================== */
 @font-face {
-    font-family: 'Komika';
-    src: url('./fonts/KomikaAxis.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Komika';
+  src: url('fonts/KomikaAxis.ttf') format('truetype');
 }
-
 @font-face {
-    font-family: 'Bangers';
-    src: url('./fonts/Bangers-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Bangers';
+  src: url('fonts/Bangers-Regular.ttf') format('truetype');
 }
 
 /* =====================
-   Body & Background
+   Base Styling
 ===================== */
+* { box-sizing: border-box; }
+
+html, body { 
+  height:100%; 
+  margin:0; 
+  padding:0; 
+  background:#021224; 
+  font-family: "Komika", "Courier New", monospace; 
+  color:#e6f7ff; 
+}
+
 body {
-    font-family: 'Komika', monospace;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #000;
-    color: #fff;
-    position: relative;
-}
-
-h1 {
-    font-family: 'Bangers', sans-serif;
-    color: #ff0000;
-    text-align: center;
-    position: relative;
-    z-index: 20;
+  background-image: url('images/bg_tile.jpg');
+  background-repeat: repeat;
+  background-size: 200px;
 }
 
 /* =====================
-   Background GIF
+   Header
 ===================== */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    object-fit: cover;
+header { 
+  text-align:center; 
+  padding:18px 10px; 
+  border-bottom: 4px solid #a00; 
+  background: linear-gradient(#001f3f, #000); 
+}
+
+header h1 { 
+  font-family: 'Bangers', Impact, sans-serif; 
+  color:#ff4444; 
+  font-size:48px; 
+  text-shadow: 3px 3px 0 #000; 
+  margin:0; 
+}
+
+.marquee { 
+  margin-top:6px; 
+  overflow:hidden; 
+  height:26px; 
+}
+
+.marquee span { 
+  display:inline-block; 
+  white-space:nowrap; 
+  animation: scroll 12s linear infinite; 
+  color:#ffd700; 
+  font-weight:bold; 
+}
+
+@keyframes scroll { 
+  0%{transform:translateX(100%);} 
+  100%{transform:translateX(-100%);} 
 }
 
 /* =====================
-   Hero Sprites
+   Menu
 ===================== */
-.sprite {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    pointer-events: none;
-    z-index: 10;
-    transition: all 0.5s ease;
+.menu { display:flex; justify-content:center; gap:12px; margin:12px 0; }
+
+.menu a {
+  padding:8px 14px; 
+  border:2px solid #003366; 
+  background:rgba(255,255,255,0.04);
+  color:#00c0ff; 
+  text-decoration:none; 
+  font-weight:bold; 
+  text-shadow:1px 1px 0 #000;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.6);
 }
 
-.hero {
-    /* Αρχική θέσεις για να κοιτιούνται */
+/* =====================
+   Stage / Sprites
+===================== */
+#stage { 
+  position:relative; 
+  width:100%; 
+  height:420px; 
+  max-width:1000px; 
+  margin:14px auto; 
+  border:3px solid #111; 
+  background: rgba(0,0,0,0.45); 
+  overflow:hidden; 
 }
 
-#hero1 { left: 100px; top: 300px; }
-#hero2 { left: 200px; top: 300px; }
-#hero3 { right: 200px; top: 300px; }
-#hero4 { right: 100px; top: 300px; }
+/* Background GIF μέσα στο stage */
+#stage .background {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  object-fit: cover;
+}
+
+/* Hero Sprites */
+.sprite { 
+  position:absolute; 
+  width:160px; 
+  transition: transform 0.3s ease; 
+  pointer-events:none; 
+  filter: drop-shadow(4px 6px 4px rgba(0,0,0,0.8)); 
+  z-index:10;
+}
+
+/* Αρχική θέσεις για να κοιτιούνται: 2 αριστερά, 2 δεξιά */
+#hero1 { left: 80px; top: 200px; }
+#hero2 { left: 240px; top: 200px; }
+#hero3 { right: 240px; top: 200px; }
+#hero4 { right: 80px; top: 200px; }
+
+/* =====================
+   Intro & Spark
+===================== */
+.intro { 
+  text-align:center; 
+  padding:10px; 
+  color:#ffd; 
+  font-size:18px; 
+}
+
+.spark { 
+  position:absolute; 
+  left:8px; 
+  top:6px; 
+  width:48px; 
+  opacity:0.85; 
+}
+
+/* =====================
+   Footer
+===================== */
+footer { 
+  text-align:center; 
+  padding:8px; 
+  font-size:12px; 
+  color:#aaa; 
+}
+
