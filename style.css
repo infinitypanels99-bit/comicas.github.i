@@ -21,8 +21,8 @@ html, body {
   margin:0; 
   padding:0; 
   background:#021224; 
-  font-family: "Super Comic", monospace; /* όλα τα υπόλοιπα */
-  color:#e6f7ff; 
+  font-family: "Super Comic", monospace;
+  color:#ffffff; 
 }
 
 body {
@@ -42,12 +42,13 @@ header {
 }
 
 header h1 { 
-  font-family: 'Komigo3D', Impact, sans-serif; /* Τίτλος με Komigo3D */
-  color:#ff4444;
+  font-family: 'Komigo3D', Impact, sans-serif; 
+  color:#ff4444; /* Κόκκινο τίτλος */
   font-size:48px; 
   margin:0; 
   text-shadow: none;
   -webkit-text-stroke: 0;
+  cursor: pointer;
 }
 
 /* =====================
@@ -63,7 +64,7 @@ header h1 {
   display:inline-block; 
   white-space:nowrap; 
   animation: scroll 12s linear infinite; 
-  color:#fff;
+  color:#ffd700; /* Χρυσό */
   font-weight:bold; 
   font-family: 'Super Comic', monospace;
   text-shadow: none;
@@ -82,15 +83,19 @@ header h1 {
 
 .menu a {
   padding:8px 14px; 
-  border:2px solid #003366; 
-  background:rgba(255,255,255,0.04);
-  color:#fff; 
+  background:#00ff00; /* Πράσινο background */
+  color:#ffd700; /* Χρυσά γράμματα */
   text-decoration:none; 
   font-weight:bold; 
-  box-shadow: 0 2px 0 rgba(0,0,0,0.6);
   font-family: 'Super Comic', monospace;
   text-shadow: none;
   -webkit-text-stroke: 0;
+  transition: all 0.2s ease;
+}
+
+.menu a:hover, .menu a:focus {
+  background: magenta;
+  color: #00ff00; /* Πράσινα γράμματα στο hover */
 }
 
 /* =====================
@@ -102,9 +107,8 @@ header h1 {
   height: 420px; 
   max-width: 1000px; 
   margin: 14px auto; 
-  border: 3px solid #111; 
-  background: rgba(0,0,0,0.45); 
   overflow: hidden; 
+  background: rgba(0,0,0,0.45); 
 }
 
 #stage .background {
@@ -120,17 +124,14 @@ header h1 {
 .sprite { 
   position: absolute; 
   pointer-events:none; 
-  filter: drop-shadow(4px 6px 4px rgba(0,0,0,0.8));
   z-index:10;
   transition: none; 
 }
 
-/* =====================
-   Τοποθέτηση δίπλα-δίπλα στην ίδια ευθεία
-===================== */
+/* Τοποθέτηση δίπλα-δίπλα στην ίδια ευθεία */
 #hero1 { left: 50px; top: 180px; width: 180px; transform: scaleX(1); } /* Spider-Man */
 #hero2 { left: 250px; top: 180px; width: 140px; transform: scaleX(1); } /* Wolverine */
-#hero3 { right: 250px; top: 180px; width: 220px; transform: scaleX(-1); } /* Cyclops πιο μεγάλος */
+#hero3 { right: 250px; top: 180px; width: 220px; transform: scaleX(-1); } /* Cyclops */
 #hero4 { right: 50px; top: 180px; width: 180px; transform: scaleX(-1); } /* Venom */
 
 /* =====================
@@ -139,7 +140,7 @@ header h1 {
 .intro { 
   text-align:center; 
   padding:10px; 
-  color:#fff; 
+  color:#ffffff; 
   font-size:18px; 
   font-family: 'Super Comic', monospace;
   text-shadow: none;
@@ -162,20 +163,18 @@ header h1 {
   width: 90%;
   max-width: 700px;
   background: rgba(0, 0, 0, 0.55);
-  border: 2px solid #a00;
-  border-radius: 10px;
   padding: 20px;
   text-align: center;
   font-family: 'Super Comic', monospace;
   text-shadow: none;
   -webkit-text-stroke: 0;
-  color: #fff;
+  color: #ffffff;
 }
 
 .contact-box h2 {
-  font-family: 'Komigo3D', Impact, sans-serif; /* τίτλος section */
+  font-family: 'Komigo3D', Impact, sans-serif;
   font-size: 36px;
-  color: #ff4444;
+  color: #ff4444; /* Τίτλος κόκκινος */
   text-shadow: none;
   -webkit-text-stroke: 0;
   margin-bottom: 15px;
@@ -188,9 +187,8 @@ footer {
   text-align:center; 
   padding:8px; 
   font-size:12px; 
-  color:#fff; 
+  color:#ffffff; 
   font-family: 'Super Comic', monospace;
   text-shadow: none;
   -webkit-text-stroke: 0;
 }
-
