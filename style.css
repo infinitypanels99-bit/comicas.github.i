@@ -48,7 +48,6 @@ header h1 {
   margin:0; 
   text-shadow: none;
   -webkit-text-stroke: 0;
-  cursor: pointer;
 }
 
 /* =====================
@@ -67,8 +66,8 @@ header h1 {
   color:#ffd700; /* Χρυσό */
   font-weight:bold; 
   font-family: 'Super Comic', monospace;
+  -webkit-text-stroke: 1px #000; /* Μαύρο stroke για ευκρίνεια */
   text-shadow: none;
-  -webkit-text-stroke: 0;
 }
 
 @keyframes scroll { 
@@ -83,19 +82,20 @@ header h1 {
 
 .menu a {
   padding:8px 14px; 
-  background:#00ff00; /* Πράσινο background */
+  background:#00cc99; /* Παιχνιδιάρικο πράσινο */
   color:#ffd700; /* Χρυσά γράμματα */
   text-decoration:none; 
   font-weight:bold; 
   font-family: 'Super Comic', monospace;
   text-shadow: none;
   -webkit-text-stroke: 0;
+  border-radius: 4px;
   transition: all 0.2s ease;
 }
 
 .menu a:hover, .menu a:focus {
-  background: magenta;
-  color: #00ff00; /* Πράσινα γράμματα στο hover */
+  background: #ff00ff; /* Magenta hover */
+  color: #00ffcc; /* Neon green letters hover */
 }
 
 /* =====================
@@ -174,7 +174,7 @@ header h1 {
 .contact-box h2 {
   font-family: 'Komigo3D', Impact, sans-serif;
   font-size: 36px;
-  color: #ff4444; /* Τίτλος κόκκινος */
+  color: #ff4444;
   text-shadow: none;
   -webkit-text-stroke: 0;
   margin-bottom: 15px;
