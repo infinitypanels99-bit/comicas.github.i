@@ -1,121 +1,185 @@
+/* =====================
+   Fonts
+===================== */
+@font-face {
+  font-family: 'Komika';
+  src: url('fonts/KomikaAxis.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Bangers';
+  src: url('fonts/Bangers-Regular.ttf') format('truetype');
+}
+
+/* =====================
+   Base Styling
+===================== */
+* { box-sizing: border-box; }
+
+html, body { 
+  height:100%; 
+  margin:0; 
+  padding:0; 
+  background:#021224; 
+  font-family: "Komika", "Courier New", monospace; 
+  color:#e6f7ff; 
+}
+
 body {
-  margin: 0;
-  background: black;
-  font-family: 'Arial', sans-serif;
-  color: white;
+  background-image: url('images/bg_tile.jpg');
+  background-repeat: repeat;
+  background-size: 200px;
 }
 
-#page {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
+/* =====================
+   Header
+===================== */
+header { 
+  text-align:center; 
+  padding:18px 10px; 
+  border-bottom: 4px solid #a00; 
+  background: linear-gradient(#001f3f, #000); 
 }
 
-/* ===== TITLE ===== */
-header h1 {
-  font-family: "RetroGaming", sans-serif;
-  font-size: 48px;
-  color: gold;
-  -webkit-text-stroke: 2px black;
+header h1 { 
+  font-family: 'Bangers', Impact, sans-serif; 
+  color:#ff4444; 
+  font-size:48px; 
+  text-shadow: 3px 3px 0 #000; 
+  margin:0;
   cursor: pointer;
 }
 
-/* ===== MARQUEE ===== */
-.marquee span {
-  font-family: "Pixel", sans-serif;
-  color: gold;
-  text-shadow: 2px 2px 4px black;
+.marquee { 
+  margin-top:6px; 
+  overflow:hidden; 
+  height:26px; 
 }
 
-/* ===== MENU ===== */
-.menu {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  background: #111;
+.marquee span { 
+  display:inline-block; 
+  white-space:nowrap; 
+  animation: scroll 12s linear infinite; 
+  color:#ffd700; 
+  font-weight:bold; 
+}
+
+@keyframes scroll { 
+  0%{transform:translateX(100%);} 
+  100%{transform:translateX(-100%);} 
+}
+
+/* =====================
+   Menu
+===================== */
+.menu { 
+  display:flex; 
+  justify-content:center; 
+  gap:12px; 
+  margin:12px 0; 
 }
 
 .menu a {
-  color: #ffcc00;
-  font-family: "Pixel", sans-serif;
-  text-decoration: none;
-  padding: 8px 16px;
-  background: #222;
-  border: 2px solid #ffcc00;
-  border-radius: 6px;
+  padding:8px 14px; 
+  border:2px solid #003366; 
+  background:rgba(255,255,255,0.04);
+  color:#00c0ff; 
+  text-decoration:none; 
+  font-weight:bold; 
+  text-shadow:1px 1px 0 #000;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.6);
 }
 
-.menu a:hover {
-  background: #ffcc00;
-  color: #111;
+/* =====================
+   Stage / Sprites
+===================== */
+#stage { 
+  position: relative; 
+  width: 100%; 
+  height: 420px; 
+  max-width: 1000px; 
+  margin: 14px auto; 
+  border: 3px solid #111; 
+  background: rgba(0,0,0,0.45); 
+  overflow: hidden; 
 }
 
-/* ===== INTRO ===== */
-.intro p {
-  font-family: "Pixel", sans-serif;
-  color: #ffd000;
-  text-shadow: 2px 2px 4px black;
-}
-
-/* ===== HERO STAGE ===== */
-#stage {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  margin-top: 20px;
-}
-
-.background {
-  width: 100%;
-  height: 100%;
+#stage .background {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   object-fit: cover;
 }
 
-.sprite {
-  position: absolute;
-  width: 180px;
+.sprite { 
+  position: absolute; 
+  pointer-events:none; 
+  filter: drop-shadow(4px 6px 4px rgba(0,0,0,0.8));
+  z-index:10;
 }
 
-#hero1 { left: 10%; bottom: 10%; }
-#hero2 { left: 30%; bottom: 10%; }
-#hero3 { left: 50%; bottom: 10%; }
-#hero4 { left: 70%; bottom: 10%; }
+/* HERO POSITIONS (ΜΕΝΟΥΝ ΩΣ ΕΧΟΥΝ) */
+#hero1 { left: 50px; top: 220px; width: 180px; }
+#hero2 { left: 250px; top: 200px; width: 140px; }
+#hero3 { right: 250px; top: 200px; width: 160px; transform: scaleX(-1); }
+#hero4 { right: 50px; top: 220px; width: 180px; transform: scaleX(-1); }
 
-/* ===== INFO BOXES (Our Comics + Contact) ===== */
-.info-box {
-  width: 80%;
-  margin: 40px auto;
+/* =====================
+   Intro
+===================== */
+.intro { 
+  text-align:center; 
+  padding:10px; 
+  color:#ffd; 
+  font-size:18px; 
+}
+
+.spark { 
+  position:absolute; 
+  left:8px; 
+  top:6px; 
+  width:48px; 
+  opacity:0.85; 
+}
+
+/* =====================
+   CONTACT BOX (NEW)
+===================== */
+#contact-section {
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.contact-box {
+  width: 70%;
+  margin: auto;
+  background: rgba(0,0,0,0.5);
+  border: 3px solid #0055aa;
   padding: 20px;
-  background: #111;
-  border: 3px solid gold;
   border-radius: 12px;
+  box-shadow: 0 0 12px #003366;
 }
 
-.info-box h2 {
-  font-family: "RetroGaming", sans-serif;
-  color: gold;
-  -webkit-text-stroke: 1px black;
+.contact-box h2 {
+  font-family: "Bangers";
+  font-size: 36px;
+  color: #00c0ff;
+  text-shadow: 2px 2px #000;
 }
 
-/* ===== COMICS GRID ===== */
-.comics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+.contact-box p {
+  font-size: 20px;
+  margin: 8px 0;
+  color: #e6f7ff;
 }
 
-.comic-item {
-  background: #222;
-  border: 2px solid gold;
-  padding: 10px;
-  border-radius: 6px;
-  font-family: "Pixel", sans-serif;
-}
-
-/* FOOTER */
-footer {
-  padding: 20px;
-  font-size: 14px;
+/* =====================
+   Footer
+===================== */
+footer { 
+  text-align:center; 
+  padding:8px; 
+  font-size:12px; 
+  color:#aaa; 
 }
