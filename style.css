@@ -5,10 +5,6 @@
   font-family: 'Komika';
   src: url('fonts/KomikaAxis.ttf') format('truetype');
 }
-@font-face {
-  font-family: 'Bangers';
-  src: url('fonts/Bangers-Regular.ttf') format('truetype');
-}
 
 /* =====================
    Base Styling
@@ -20,7 +16,7 @@ html, body {
   margin:0; 
   padding:0; 
   background:#021224; 
-  font-family: "Komika", "Courier New", monospace; 
+  font-family: "Komika", monospace; 
   color:#e6f7ff; 
 }
 
@@ -76,7 +72,7 @@ header h1 {
   padding:8px 14px; 
   border:2px solid #003366; 
   background:rgba(255,255,255,0.04);
-  color:#00c0ff; 
+  color:#a0e0ff; /* πιο ευανάγνωστο μπλε */
   text-decoration:none; 
   font-weight:bold; 
   text-shadow:1px 1px 0 #000;
@@ -135,7 +131,7 @@ header h1 {
 .intro { 
   text-align:center; 
   padding:10px; 
-  color:#ffd; 
+  color:#f0f0f0; /* πιο καθαρό λευκό */
   font-size:18px; 
 }
 
@@ -154,5 +150,5 @@ footer {
   text-align:center; 
   padding:8px; 
   font-size:12px; 
-  color:#aaa; 
+  color:#ccc; 
 }
