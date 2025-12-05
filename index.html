@@ -3,51 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Comicas Retro</title>
+  <title>Comicas Retro - Comics</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="page">
     <header>
       <h1>COMICAS • RETRO SHOP</h1>
-      </a>
-      <div class="marquee"><span>Rare Comics • Retro Games • Mystery Boxes</span></div>
+      <div class="marquee"><span>Blast from the Past — Into the Neon Future!</span></div>
     </header>
 
     <nav class="menu">
-      <a href="#" onclick="window.location.href=window.location.pathname">HOME</a>
-      <a href="#">COMICS</a>
+      <a href="index.html">HOME</a>
+      <a href="comics.html">COMICS</a>
       <a href="#">RETRO GAMES</a>
       <a href="#">MYSTERY BOX</a>
       <a href="#contact">CONTACT</a>
     </nav>
 
     <main>
-      <section class="intro">
-        <img src="images/sparkle.gif" class="spark" alt="">
-        <p>Blast from the Past — Into the Neon Future!</p>
-      </section>
-      <section id="stage">
-        <img id="hero1" class="sprite" src="images/spiderman.gif" alt="Spider-Man">
-        <img id="hero2" class="sprite" src="images/wolverine.gif" alt="Wolverine">
-        <img id="hero3" class="sprite" src="images/cyclops.gif" alt="Cyclops">
-        <img id="hero4" class="sprite" src="images/venom.gif" alt="Venom">
-        <img class="background" src="images/newyork.gif" alt="Background">
+      <section class="products">
+        <h2>Our Comics</h2>
+        <div class="product-list">
+          <div class="product">
+            <img src="images/comic1.jpg" alt="Comic 1">
+            <h3>Spider-Man #1</h3>
+            <p>Classic Spider-Man story!</p>
+            <p class="price">€12.99</p>
+          </div>
+
+          <div class="product">
+            <img src="images/comic2.jpg" alt="Comic 2">
+            <h3>X-Men: Wolverine</h3>
+            <p>Wolverine’s first solo adventure.</p>
+            <p class="price">€14.50</p>
+          </div>
+
+          <div class="product">
+            <img src="images/comic3.jpg" alt="Comic 3">
+            <h3>Venom #5</h3>
+            <p>The symbiote strikes again!</p>
+            <p class="price">€11.00</p>
+          </div>
+          
+          <!-- Μπορείς να προσθέσεις όσα προϊόντα θέλεις -->
+        </div>
       </section>
     </main>
-
-    <section id="contact" class="contact-box">
-      <h2>Contact Me</h2>
-      <p>Email: example@email.com</p>
-      <p>Phone: +30 69xxxxxxx</p>
-    </section>
 
     <footer>
       <p>Best viewed in 800x600 • Comicas ©</p>
     </footer>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
