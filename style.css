@@ -120,10 +120,10 @@ header h1 {
 /* Τοποθέτηση δίπλα-δίπλα στην ίδια ευθεία */
 /* Αριστερά: Spider-Man (μεγαλύτερος) + Wolverine */
 #hero1 { left: 100px; top: 250px; width: 180px; transform: scaleX(1); } /* Spider-Man μεγαλωμένος */
-#hero2 { left: 260px; top: 250px; width: 140px; transform: scaleX(1); } /* Wolverine κανονικός */
+#hero2 { left: 280px; top: 250px; width: 140px; transform: scaleX(1); } /* Wolverine κανονικός */
 
 /* Δεξιά: Cyclops + Venom, κοιτάζουν προς τα αριστερά */
-#hero3 { right: 260px; top: 250px; width: 140px; transform: scaleX(-1); } /* Cyclops καθρέφτης */
+#hero3 { right: 280px; top: 250px; width: 140px; transform: scaleX(-1); } /* Cyclops καθρέφτης */
 #hero4 { right: 100px; top: 250px; width: 160px; transform: scaleX(-1); } /* Venom καθρέφτης */
 
 /* =====================
