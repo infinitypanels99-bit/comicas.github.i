@@ -119,12 +119,12 @@ header h1 {
 
 /* Τοποθέτηση δίπλα-δίπλα στην ίδια ευθεία */
 /* Αριστερά: Spider-Man (μεγαλύτερος) + Wolverine */
-#hero1 { left: 100px; top: 230px; width: 220px; transform: scaleX(1); } /* Spider-Man μεγαλύτερος */
+#hero1 { left: 100px; top: 210px; width: 200px; transform: scaleX(1); } /* Spider-Man μεγαλύτερος */
 #hero2 { left: 280px; top: 420px; width: 140px; transform: scaleX(1); } /* Wolverine πιο πάνω */
 
 /* Δεξιά: Cyclops + Venom, κοιτάζουν προς τα αριστερά */
 #hero3 { right: 280px; top: 420px; width: 140px; transform: scaleX(-1); } /* Cyclops πιο πάνω */
-#hero4 { right: 100px; top: 230px; width: 220px; transform: scaleX(-1); } /* Venom μεγαλύτερος */
+#hero4 { right: 100px; top: 210px; width: 220px; transform: scaleX(-1); } /* Venom μεγαλύτερος */
 
 /* =====================
    Intro & Spark
