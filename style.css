@@ -43,7 +43,7 @@ header {
 
 header h1 { 
   font-family: 'Komigo3D', Impact, sans-serif; 
-  color:#ff4444; /* Κόκκινο τίτλος */
+  color:#ff4444; /* Κόκκινος τίτλος */
   font-size:48px; 
   margin:0; 
   text-shadow: none;
@@ -63,10 +63,10 @@ header h1 {
   display:inline-block; 
   white-space:nowrap; 
   animation: scroll 12s linear infinite; 
-  color:#ffd700; /* Χρυσό */
+  font-family: 'Komigo3D', Impact, sans-serif; /* ίδια με τον τίτλο */
   font-weight:bold; 
-  font-family: 'Super Comic', monospace;
-  -webkit-text-stroke: 1px #000; /* Μαύρο stroke για ευκρίνεια */
+  color:#ffd700; /* χρυσό */
+  -webkit-text-stroke: 1px #000; /* μαύρο stroke για ευκρίνεια */
   text-shadow: none;
 }
 
@@ -82,8 +82,8 @@ header h1 {
 
 .menu a {
   padding:8px 14px; 
-  background:#00cc99; /* Παιχνιδιάρικο πράσινο */
-  color:#ffd700; /* Χρυσά γράμματα */
+  background:#0033cc; /* πιο «retro» μπλε */
+  color:#ffffff; /* λευκά γράμματα */
   text-decoration:none; 
   font-weight:bold; 
   font-family: 'Super Comic', monospace;
@@ -94,8 +94,8 @@ header h1 {
 }
 
 .menu a:hover, .menu a:focus {
-  background: #ff00ff; /* Magenta hover */
-  color: #00ffcc; /* Neon green letters hover */
+  background: #ff6600; /* πορτοκαλί/neon hover */
+  color: #000000; /* μαύρα γράμματα στο hover */
 }
 
 /* =====================
