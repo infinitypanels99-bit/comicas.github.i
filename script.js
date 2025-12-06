@@ -15,3 +15,28 @@ window.addEventListener('load', () => {
 
 
 });
+/* ============================
+   COMICS IMAGE CAROUSEL
+============================ */
+document.querySelectorAll('.comic-card').forEach(card => {
+    const slider = card.querySelector('.comic-slider');
+    const images = slider.querySelectorAll('img');
+    const next = card.querySelector('.next');
+    const prev = card.querySelector('.prev');
+
+    let index = 0;
+
+    function updateSlide() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        updateSlide();
+    });
+
+    prev.addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        updateSlide();
+    });
+});
