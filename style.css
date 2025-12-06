@@ -239,11 +239,13 @@ footer {
 }
 
 .comic-card .price {
-  color: #00ff66; /* χρώμα για τις τιμές */
+  color: #ffffff; /* λευκό χρώμα */
   font-weight: bold;
   margin-top: 4px;
   font-size: 16px;
+
 }
+
 .comic-card img {
   width: 100%;
   height: auto;
