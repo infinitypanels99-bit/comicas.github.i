@@ -250,3 +250,11 @@ footer {
   font-weight: bold;
   font-size: 16px;
 }
+.comic-card .price {
+  color: #ffffff; /* λευκό χρώμα */
+  -webkit-text-stroke: 1px #000000; /* μαύρο περίγραμμα */
+  text-stroke: 1px #000000; /* για Firefox / άλλα browsers που υποστηρίζουν */
+  font-weight: bold;
+  margin-top: 4px;
+  font-size: 16px;
+}
