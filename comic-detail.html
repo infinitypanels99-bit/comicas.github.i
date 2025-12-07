@@ -28,13 +28,17 @@
     <main>
       <section class="comic-detail">
         <h2 id="comic-title"></h2>
+
+        <!-- Κύρια εικόνα + Thumbnails -->
         <div class="comic-images">
-          <img id="main-img" src="" alt="">
+          <img id="main-img" src="" alt="Comic Cover">
+          <div class="comic-thumbs">
+            <img class="thumb" src="" alt="">
+            <img class="thumb" src="" alt="">
+            <img class="thumb" src="" alt="">
+          </div>
         </div>
-        <div class="comic-thumbs">
-          <img class="thumb" src="" alt="">
-          <img class="thumb" src="" alt="">
-        </div>
+
         <p class="comic-price" id="comic-price"></p>
         <button class="add-to-cart-btn">Add to Cart</button>
         <p class="comic-desc" id="comic-desc"></p>
@@ -104,28 +108,31 @@
   } else {
     const comic = comics[comicId];
 
-    // Populate the page
+    // Populate page
     document.getElementById("comic-title").textContent = comic.title;
     document.getElementById("main-img").src = comic.images[0];
     document.getElementById("main-img").alt = comic.title;
     document.getElementById("comic-price").textContent = "€" + comic.price;
     document.getElementById("comic-desc").textContent = comic.desc;
 
-    // Thumbnails
+    // Thumbnails (cover + 2 extra)
     const thumbs = document.querySelectorAll(".comic-thumbs .thumb");
     thumbs.forEach((thumb, index) => {
-      if(comic.images[index + 1]) {
-        thumb.src = comic.images[index + 1];
-        thumb.alt = comic.title + " " + (index + 2);
-        thumb.addEventListener("click", () => {
-          document.getElementById("main-img").src = comic.images[index + 1];
-        });
+      if (index === 0) {
+        // Πρώτο thumbnail = cover
+        thumb.src = comic.images[0];
+      } else if (comic.images[index]) {
+        thumb.src = comic.images[index];
       } else {
         thumb.style.display = "none";
       }
+      thumb.alt = comic.title + " " + (index + 1);
+      thumb.addEventListener("click", () => {
+        document.getElementById("main-img").src = thumb.src;
+      });
     });
 
-    // Add to Cart Button
+    // Add to Cart
     const addBtn = document.querySelector(".add-to-cart-btn");
     if (addBtn) {
       addBtn.addEventListener("click", () => {
