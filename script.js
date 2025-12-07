@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ----------------------
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Φόρτωση υπάρχοντος cart
+    // Φόρτωση υπάρχοντος cart από localStorage
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     // Ενημέρωση του cart count σε όλα τα pages
@@ -67,19 +67,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =====================
-    // Συνδεση κουμπιών Add to Cart
+    // Κουμπιά στη σελίδα comics.html
     // =====================
-    // 1. Κουμπιά στη σελίδα comics.html
     document.querySelectorAll(".add-to-cart").forEach(btn => {
         btn.addEventListener("click", () => {
             const title = btn.dataset.title;
             const price = parseFloat(btn.dataset.price);
             const img = btn.dataset.img;
+
             addToCart({ title, price, img });
+
+            // ΑΜΕΣΗ ενημέρωση cart count
+            const countElements = document.querySelectorAll('.cart-count');
+            countElements.forEach(el => el.textContent = cart.length);
         });
     });
 
-    // 2. Κουμπί στη σελίδα comic-detail.html
+    // =====================
+    // Κουμπί στη σελίδα comic-detail.html
+    // =====================
     const detailBtn = document.querySelector(".add-to-cart-btn");
     if (detailBtn && window.comicData) {
         detailBtn.addEventListener("click", () => {
@@ -90,4 +96,47 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // =====================
+    // Προβολή cart στη σελίδα cart.html
+    // =====================
+    const cartContainer = document.getElementById("cart-items");
+    const cartTotalElement = document.getElementById("cart-total");
+
+    function renderCart() {
+        if (!cartContainer || !cartTotalElement) return;
+
+        cartContainer.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            total += parseFloat(item.price);
+
+            const cartItem = document.createElement("div");
+            cartItem.className = "cart-item";
+            cartItem.innerHTML = `
+                <img src="${item.img}" alt="${item.title}">
+                <div class="cart-details">
+                    <h3>${item.title}</h3>
+                    <p>€${item.price.toFixed(2)}</p>
+                </div>
+                <button class="remove-btn" data-index="${index}">Remove</button>
+            `;
+            cartContainer.appendChild(cartItem);
+        });
+
+        cartTotalElement.textContent = total.toFixed(2);
+
+        // Remove item
+        cartContainer.querySelectorAll(".remove-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const idx = btn.dataset.index;
+                cart.splice(idx, 1);
+                saveCart();
+                renderCart();
+            });
+        });
+    }
+
+    renderCart();
 });
