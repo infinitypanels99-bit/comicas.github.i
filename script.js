@@ -46,8 +46,8 @@ function showCartPopup(title) {
       <h3>✔ Το προσθέσατε στο καλάθι!</h3>
       <p><strong>${title}</strong></p>
       <div class="popup-buttons">
-        <button id="continueBtn">Συνέχεια στο Shop</button>
-        <button id="goToCartBtn">Μετάβαση στο Καλάθι</button>
+        <button id="continueBtn">Continue Shopping</button>
+        <button id="goToCartBtn">Go Τo Cart</button>
       </div>
     </div>
   `;
