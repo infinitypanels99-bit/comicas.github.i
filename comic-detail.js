@@ -39,30 +39,35 @@ const comicId = params.get('id');
 if (comics[comicId]) {
   const comic = comics[comicId];
 
-  // Βάζουμε τα στοιχεία στο page
+  // Κύρια εικόνα: cover
+  const mainImg = document.getElementById("main-img");
+  mainImg.src = comic.images[0]; // cover
+  mainImg.alt = comic.title;
+
   document.getElementById("comic-title").textContent = comic.title;
-  document.getElementById("main-img").src = comic.images[0];
-  document.getElementById("main-img").alt = comic.title;
   document.getElementById("comic-price").textContent = comic.price;
   document.getElementById("comic-desc").textContent = comic.desc;
 
-  // Thumbnails (συμπεριλαμβάνουμε το cover)
+  // Thumbnails: cover + 2 επόμενες εικόνες
   const thumbsContainer = document.querySelector(".comic-thumbs");
-  thumbsContainer.innerHTML = ""; // καθαρίζουμε τυχόν υπάρχοντα
+  thumbsContainer.innerHTML = ""; // καθαρίζουμε τυχόν προηγούμενα
 
-  comic.images.forEach((imgSrc, index) => {
+  const thumbsImages = [comic.images[0], comic.images[1], comic.images[2]];
+
+  thumbsImages.forEach((imgSrc, index) => {
+    if (!imgSrc) return; // αν δεν υπάρχει εικόνα
+
     const thumb = document.createElement("img");
     thumb.className = "thumb";
     thumb.src = imgSrc;
     thumb.alt = comic.title + " " + (index + 1);
 
     thumb.addEventListener("click", () => {
-      document.getElementById("main-img").src = imgSrc;
+      mainImg.src = imgSrc;
     });
 
     thumbsContainer.appendChild(thumb);
   });
-
 } else {
   document.querySelector(".comic-detail").innerHTML = "<p>Comic not found.</p>";
 }
@@ -104,11 +109,10 @@ function showCartPopup(title) {
   document.getElementById("goToCartBtn").onclick = () => window.location.href = "cart.html";
 }
 
-// Add to Cart button στο comic-detail page
+// Add to Cart button
 const addBtn = document.querySelector(".add-to-cart-btn");
 if (addBtn && comics[comicId]) {
   addBtn.addEventListener("click", () => {
     addToCart(comic.title, parseFloat(comic.price.replace("€", "")), comic.images[0]);
   });
 }
-
